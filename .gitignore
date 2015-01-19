@@ -1,0 +1,7 @@
+phpunit.xml
+composer.lock
+vendor
+storage/*
+application/config/gcs.php
+application/libraries/google/src/Google/key/*.p12
+application/libraries/google/src/Google/key/*.txt
