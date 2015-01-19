@@ -6,23 +6,29 @@ class Googlecloudstorage{
     public $storageService;
     private $googleapiclientpath;
     private $sourcefilepath;
+    private $CI; 
+    private $GCS_CFG;
 
     public function __construct()
     {
+        $this->CI =& get_instance();
         $this->googleapiclientpath = "application/libraries/google/src/";
         $this->sourcefilepath = "storage/";
         set_include_path($this->googleapiclientpath . PATH_SEPARATOR . get_include_path());     
-        require_once $this->googleapiclientpath.'Google/Client.php';      
+        require_once $this->googleapiclientpath.'Google/Client.php';    
+        # config
+        $this->CI->config->load('gcs', true);
+        $this->GCS_CFG = $this->CI->config->item('gcs');
     } 
 
     public function set_client()
     {
-        $client_id = '205701658724-heil3mmtfne3ltqkc556q9hn69i6r2tn.apps.googleusercontent.com'; //Client ID
-        $service_account_name = '205701658724-heil3mmtfne3ltqkc556q9hn69i6r2tn@developer.gserviceaccount.com'; //Email Address
-        $key_file_location = $this->googleapiclientpath.'Google/key/BuscadorEyT-0f667123983b.p12'; //key.p12
+        $client_id = $this->GCS_CFG['gcs_client_id']; //Client ID
+        $service_account_name = $this->GCS_CFG['gcs_service_account_name'];  //Email Address
+        $key_file_location = $this->googleapiclientpath.'Google/key/'.$this->GCS_CFG['gcs_key_file']; //key.p12
 
         $this->client = new Google_Client();
-        $this->client->setApplicationName("Google Cloud Storage");
+        $this->client->setApplicationName($this->GCS_CFG['gcs_app_name']);
 
         // if (isset($_SESSION['service_token_2'])) {
         //     $this->client->setAccessToken($_SESSION['service_token_2']);
@@ -30,7 +36,7 @@ class Googlecloudstorage{
         $key = file_get_contents($key_file_location);
         $cred = new Google_Auth_AssertionCredentials(
             $service_account_name,
-            array('https://www.googleapis.com/auth/devstorage.full_control'),
+            array($this->GCS_CFG['gcs_oauth_scope']),
             $key
             );
         $this->client->setAssertionCredentials($cred);

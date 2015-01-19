@@ -19,18 +19,6 @@ class Backup extends CI_Controller {
 		$this->gcs->media_file_upload('backup_eytwhmcs', 'small.zip', 'db/file.zip');		
 	}
 
-	public function run_backup_md()
-	{
-		$this->gcs->set_client();
-		$this->gcs->media_file_upload('backup_eytwhmcs', 'medium.zip', 'db/medfile.zip');		
-	}
-
-	public function run_backup_lg()
-	{
-		$this->gcs->set_client();
-		$this->gcs->media_file_upload('backup_eytwhmcs', 'large.zip', 'db/lgfile.zip');		
-	}	
-
 
 }
 
