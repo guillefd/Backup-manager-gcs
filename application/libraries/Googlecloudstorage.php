@@ -17,8 +17,8 @@ class Googlecloudstorage{
         set_include_path($this->googleapiclientpath . PATH_SEPARATOR . get_include_path());     
         require_once $this->googleapiclientpath.'Google/Client.php';    
         # config
-        $this->CI->config->load('gcs', true);
-        $this->GCS_CFG = $this->CI->config->item('gcs');
+        $this->CI->config->load('gcs_settings', true);
+        $this->GCS_CFG = $this->CI->config->item('gcs_settings');
     } 
 
     public function set_client()
