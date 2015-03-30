@@ -5,4 +5,7 @@ vendor
 # ignore assets
 assets/gcs/*
 
+# ignore userguide
+userguide/*
+
 application/config/gcs_settings.php
