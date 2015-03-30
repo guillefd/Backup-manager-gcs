@@ -8,6 +8,7 @@ Send  email  notification via  Mailgun API
 Workflow:
 
 - folder is zipped in a TAR file
+- MySQL database is dumped and zipped in a TAR file
 - TAR file is prefixed with date and hour
 - TAR file is uploaded to Google Cloud Storage Bucket
 - TAR file is deleted
