@@ -2,7 +2,5 @@ phpunit.xml
 composer.lock
 vendor
 storage/*
-application/config/gcs.php
-application/libraries/google/src/Google/key/*.p12
-application/libraries/google/src/Google/key/*.txt
-application/assets/gcs/*
+application/config/gcs_settings.php
+assets/gcs/*
