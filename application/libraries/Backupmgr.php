@@ -673,7 +673,7 @@ class Backupmgr{
 					    				break;
 
 	    			case 'folder':
-					    				$msg.= "cfg:path ".$st['cfg']['path']."<br>";
+					    				$msg.= "cfg:path ".$st['cfg']['fullpath']."<br>";
 					    				$msg.= "cfg:exclude ".implode(", ", $st['cfg']['exclude'])."<br>";
 					    				break;    			
 	    			default:

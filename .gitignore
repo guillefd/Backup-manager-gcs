@@ -9,3 +9,4 @@ assets/gcs/*
 userguide/*
 
 application/config/gcs_settings.php
+application/config/backup_settings.php

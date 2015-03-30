@@ -12,28 +12,25 @@ class Backup extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->lang->load('backup');
 
+        $this->lang->load('backup');
+        $this->load->helper('date');
         // FULL DEBUG ##########################
         $this->setFullDump();
         // #####################################     
 	}	
 
-	public function index($task_id='undefined')
+	public function index($taskid='undefined')
 	{
-		echo 'CRON START' . PHP_EOL;
-    	$this->load->library('backupmgr');
-		$this->backupmgr->run($task_id);
-		echo 'CRON END' . PHP_EOL;
+		$this->cron($taskid);
 	}
 
-	public function cli($task_id='undefined')
+	public function cli($taskid='undefined')
 	{
 		echo 'CRON START' . PHP_EOL;
 		if($this->input->is_cli_request())
 		{
-        	$this->load->library('backupmgr');
-			$this->backupmgr->run($task_id);
+        	$this->cron($taskid);
 		}
 		else
 			{
@@ -41,6 +38,14 @@ class Backup extends CI_Controller {
 			}
 		echo 'CRON END' . PHP_EOL;
 	}	
+
+	private function cron($taskid)
+	{
+		echo 'CRON START' . PHP_EOL;
+    	$this->load->library('backupmgr');
+		$this->backupmgr->run($taskid);
+		echo 'CRON END' . PHP_EOL;		
+	}
 
     //////////////
     // DEBUG // //
