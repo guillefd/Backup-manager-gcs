@@ -130,15 +130,11 @@ class CI_Calendar {
 	public function __construct($config = array())
 	{
 		$this->CI =& get_instance();
-
-		if ( ! in_array('calendar_lang.php', $this->CI->lang->is_loaded, TRUE))
-		{
-			$this->CI->lang->load('calendar');
-		}
+		$this->CI->lang->load('calendar');
 
 		empty($config) OR $this->initialize($config);
 
-		log_message('debug', 'Calendar Class Initialized');
+		log_message('info', 'Calendar Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -548,6 +544,3 @@ class CI_Calendar {
 	}
 
 }
-
-/* End of file Calendar.php */
-/* Location: ./system/libraries/Calendar.php */

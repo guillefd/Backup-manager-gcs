@@ -120,7 +120,7 @@ class CI_Table {
 			$this->template[$key] = $val;
 		}
 
-		log_message('debug', 'Table Class Initialized');
+		log_message('info', 'Table Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -502,7 +502,7 @@ class CI_Table {
 	/**
 	 * Default Template
 	 *
-	 * @return	void
+	 * @return	array
 	 */
 	protected function _default_template()
 	{
@@ -535,6 +535,3 @@ class CI_Table {
 	}
 
 }
-
-/* End of file Table.php */
-/* Location: ./system/libraries/Table.php */

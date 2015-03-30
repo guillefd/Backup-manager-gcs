@@ -132,8 +132,8 @@ class CI_DB_mysql_driver extends CI_DB {
 
 		// Error suppression is necessary mostly due to PHP 5.5+ issuing E_DEPRECATED messages
 		$this->conn_id = ($persistent === TRUE)
-			? @mysql_pconnect($this->hostname, $this->username, $this->password, $client_flags)
-			: @mysql_connect($this->hostname, $this->username, $this->password, TRUE, $client_flags);
+			? mysql_pconnect($this->hostname, $this->username, $this->password, $client_flags)
+			: mysql_connect($this->hostname, $this->username, $this->password, TRUE, $client_flags);
 
 		// ----------------------------------------------------------------
 
@@ -222,10 +222,6 @@ class CI_DB_mysql_driver extends CI_DB {
 		if (isset($this->data_cache['version']))
 		{
 			return $this->data_cache['version'];
-		}
-		elseif ( ! $this->conn_id)
-		{
-			$this->initialize();
 		}
 
 		if ( ! $this->conn_id OR ($version = mysql_get_server_info($this->conn_id)) === FALSE)
@@ -495,6 +491,3 @@ class CI_DB_mysql_driver extends CI_DB {
 	}
 
 }
-
-/* End of file mysql_driver.php */
-/* Location: ./system/database/drivers/mysql/mysql_driver.php */

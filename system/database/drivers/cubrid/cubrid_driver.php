@@ -163,10 +163,6 @@ class CI_DB_cubrid_driver extends CI_DB {
 		{
 			return $this->data_cache['version'];
 		}
-		elseif ( ! $this->conn_id)
-		{
-			$this->initialize();
-		}
 
 		return ( ! $this->conn_id OR ($version = cubrid_get_server_info($this->conn_id)) === FALSE)
 			? FALSE
@@ -421,6 +417,3 @@ class CI_DB_cubrid_driver extends CI_DB {
 	}
 
 }
-
-/* End of file cubrid_driver.php */
-/* Location: ./system/database/drivers/cubrid/cubrid_driver.php */

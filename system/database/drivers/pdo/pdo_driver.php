@@ -156,10 +156,6 @@ class CI_DB_pdo_driver extends CI_DB {
 		{
 			return $this->data_cache['version'];
 		}
-		elseif ( ! $this->conn_id)
-		{
-			$this->initialize();
-		}
 
 		// Not all subdrivers support the getAttribute() method
 		try
@@ -398,6 +394,3 @@ class CI_DB_pdo_driver extends CI_DB {
 	}
 
 }
-
-/* End of file pdo_driver.php */
-/* Location: ./system/database/drivers/pdo/pdo_driver.php */

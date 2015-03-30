@@ -92,7 +92,7 @@ if ( ! function_exists('mb_strpos'))
 	 * WARNING: This function WILL fall-back to strpos()
 	 * if iconv is not available!
 	 *
-	 * @link	http://php.net/mb_strpos()
+	 * @link	http://php.net/mb_strpos
 	 * @param	string	$haystack
 	 * @param	string	$needle
 	 * @param	int	$offset
@@ -147,6 +147,3 @@ if ( ! function_exists('mb_substr'))
 			: substr($str, $start);
 	}
 }
-
-/* End of file mbstring.php */
-/* Location: ./system/core/compat/mbstring.php */

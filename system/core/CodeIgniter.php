@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @var	string
  *
  */
-	define('CI_VERSION', '3.0-dev');
+	define('CI_VERSION', '3.0.0');
 
 /*
  * ------------------------------------------------------
@@ -155,6 +155,29 @@ if ( ! is_php('5.4'))
 	if ( ! empty($assign_to_config['subclass_prefix']))
 	{
 		get_config(array('subclass_prefix' => $assign_to_config['subclass_prefix']));
+	}
+
+/*
+ * ------------------------------------------------------
+ *  Should we use a Composer autoloader?
+ * ------------------------------------------------------
+ */
+	if ($composer_autoload = config_item('composer_autoload'))
+	{
+		if ($composer_autoload === TRUE)
+		{
+			file_exists(APPPATH.'vendor/autoload.php')
+				? require_once(APPPATH.'vendor/autoload.php')
+				: log_message('error', '$config[\'composer_autoload\'] is set to TRUE but '.APPPATH.'vendor/autoload.php was not found.');
+		}
+		elseif (file_exists($composer_autoload))
+		{
+			require_once($composer_autoload);
+		}
+		else
+		{
+			log_message('error', 'Could not find the specified $config[\'composer_autoload\'] path: '.$composer_autoload);
+		}
 	}
 
 /*
@@ -461,23 +484,6 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Should we use a Composer autoloader?
- * ------------------------------------------------------
- */
-	if ($composer_autoload = config_item('composer_autoload'))
-	{
-		if ($composer_autoload === TRUE && file_exists(APPPATH.'vendor/autoload.php'))
-		{
-			require_once(APPPATH.'vendor/autoload.php');
-		}
-		elseif (file_exists($composer_autoload))
-		{
-			require_once($composer_autoload);
-		}
-	}
-
-/*
- * ------------------------------------------------------
  *  Is there a "pre_controller" hook?
  * ------------------------------------------------------
  */
@@ -533,6 +539,3 @@ if ( ! is_php('5.4'))
  * ------------------------------------------------------
  */
 	$EXT->call_hook('post_system');
-
-/* End of file CodeIgniter.php */
-/* Location: ./system/core/CodeIgniter.php */

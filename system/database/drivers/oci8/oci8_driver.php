@@ -243,10 +243,6 @@ class CI_DB_oci8_driver extends CI_DB {
 		{
 			return $this->data_cache['version'];
 		}
-		elseif ( ! $this->conn_id)
-		{
-			$this->initialize();
-		}
 
 		if ( ! $this->conn_id OR ($version = oci_server_version($this->conn_id)) === FALSE)
 		{
@@ -708,6 +704,3 @@ class CI_DB_oci8_driver extends CI_DB {
 	}
 
 }
-
-/* End of file oci8_driver.php */
-/* Location: ./system/database/drivers/oci8/oci8_driver.php */

@@ -72,6 +72,8 @@ class CI_Config {
 	 */
 	public $_config_paths =	array(APPPATH);
 
+	// --------------------------------------------------------------------
+
 	/**
 	 * Class constructor
 	 *
@@ -82,7 +84,6 @@ class CI_Config {
 	public function __construct()
 	{
 		$this->config =& get_config();
-		log_message('debug', 'Config Class Initialized');
 
 		// Set the base_url automatically if none was provided
 		if (empty($this->config['base_url']))
@@ -101,6 +102,8 @@ class CI_Config {
 
 			$this->set_item('base_url', $base_url);
 		}
+
+		log_message('info', 'Config Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -120,10 +123,9 @@ class CI_Config {
 
 		foreach ($this->_config_paths as $path)
 		{
-			foreach (array($file, ENVIRONMENT.'/'.$file) as $location)
+			foreach (array($file, ENVIRONMENT.DIRECTORY_SEPARATOR.$file) as $location)
 			{
 				$file_path = $path.'config/'.$location.'.php';
-
 				if (in_array($file_path, $this->is_loaded, TRUE))
 				{
 					return TRUE;
@@ -162,14 +164,13 @@ class CI_Config {
 				$loaded = TRUE;
 				log_message('debug', 'Config file loaded: '.$file_path);
 			}
-
-			if ($loaded === TRUE)
-			{
-				return TRUE;
-			}
 		}
 
-		if ($fail_gracefully === TRUE)
+		if ($loaded === TRUE)
+		{
+			return TRUE;
+		}
+		elseif ($fail_gracefully === TRUE)
 		{
 			return FALSE;
 		}
@@ -356,6 +357,3 @@ class CI_Config {
 	}
 
 }
-
-/* End of file Config.php */
-/* Location: ./system/core/Config.php */

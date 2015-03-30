@@ -213,10 +213,6 @@ class CI_DB_postgre_driver extends CI_DB {
 		{
 			return $this->data_cache['version'];
 		}
-		elseif ( ! $this->conn_id)
-		{
-			$this->initialize();
-		}
 
 		if ( ! $this->conn_id OR ($pg_version = pg_version($this->conn_id)) === FALSE)
 		{
@@ -641,6 +637,3 @@ class CI_DB_postgre_driver extends CI_DB {
 	}
 
 }
-
-/* End of file postgre_driver.php */
-/* Location: ./system/database/drivers/postgre/postgre_driver.php */

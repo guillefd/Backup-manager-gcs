@@ -126,7 +126,7 @@ class CI_Migration {
 			$this->{'_'.$key} = $val;
 		}
 
-		log_message('debug', 'Migrations class initialized');
+		log_message('info', 'Migrations Class Initialized');
 
 		// Are they trying to use migrations while it is disabled?
 		if ($this->_migration_enabled !== TRUE)
@@ -421,11 +421,11 @@ class CI_Migration {
 	 * Stores the current schema version
 	 *
 	 * @param	string	$migration	Migration reached
-	 * @return	void	Outputs a report of the migration
+	 * @return	void
 	 */
 	protected function _update_version($migration)
 	{
-		return $this->db->update($this->_migration_table, array(
+		$this->db->update($this->_migration_table, array(
 			'version' => $migration
 		));
 	}
@@ -444,6 +444,3 @@ class CI_Migration {
 	}
 
 }
-
-/* End of file Migration.php */
-/* Location: ./system/libraries/Migration.php */
