@@ -1,6 +1,8 @@
 phpunit.xml
 composer.lock
 vendor
-storage/*
+
+# ignore assets
 assets/gcs/*
+
 application/config/gcs_settings.php
