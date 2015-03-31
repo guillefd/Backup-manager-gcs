@@ -109,7 +109,7 @@ class Backupmgr{
 		$this->setProchandlerValue($PID, $pdata);
 	}
 
-	public function runTaskCloudUpload()
+	private function runTaskCloudUpload()
 	{
 		# cli
 		$this->print_cli(__METHOD__);
@@ -702,8 +702,8 @@ class Backupmgr{
 	    			$msg .= "file uploaded: ".$this->taskuploadresult[$i]['result'].'<br>';
 	    			$msg .= "httpcode: ".$this->taskuploadresult[$i]['httpcode'].'<br>';
 	    			$msg .= "totaltime: ".$this->taskuploadresult[$i]['totaltime'].'<br>';
-	    			$msg .= "destination: ".$this->taskuploadresult[$i]['name'].'<br>';
 	    			$msg .= "bucket: ".$this->taskuploadresult[$i]['bucket'].'<br>';
+	    			$msg .= "bucket path: ".$this->taskuploadresult[$i]['name'].'<br>';
 	    		}
 	    		else
 		    		{
