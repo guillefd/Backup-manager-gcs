@@ -15,24 +15,26 @@ Send  email  notification via  Mailgun API
 
 ###Install
 
-Copy files
-- copy files behind webroot (not accesible via web)
+1- Extract
+- Extract folder behind webroot (not accesible via web)
 
-Google Cloud Settings
+2- Google Cloud Settings
 - open your Google Cloud Console
-  (if don't have one, sign in https://cloud.google.com/storage/docs/signup)
+  (Don't have one? sign in https://cloud.google.com/storage/docs/signup)
 - Go to "APIs & Auth > Credentials
 	- Create a Client ID (application type: Service account, key type: P12 key)
 	- save p12 key file (you´ll use it later)  
 	- copy Client ID
 	- copy Email address  
 
-Edit gcs_settings.php	
+3- Edit gcs_settings.php	
 - rename gcs_settings-dist.php > gcs_settings.php 
-- open file gcs_settings.php
-- complete:
-	- gcs_app_name: Give app a name
-	- gcs_client_id
+- open it for edit
+- Fill vars values:
+	- gcs_app_name: choose app name
+	- gcs_client_id: paste Client ID (from step 2)
+	- gcs_service_account_name: paste email address (from step 2)
+	
 
 
 
