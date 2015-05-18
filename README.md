@@ -28,9 +28,9 @@ Send  email  notification via  Mailgun API
 	- copy Email address  
 
 3- Upload P12 file 
-   create folder assets/gcs in app_root_folder
-   upload the p12 file of step 2 in 'gcs' folder
-   the path of the P12 file should look like this: app_root_folder/assets/gcs/your_P12file_name.p12
+    - create folder assets/gcs in app_root_folder
+    - upload the p12 file of step 2 in 'gcs' folder
+    - the path of the P12 file should look like this: app_root_folder/assets/gcs/your_P12file_name.p12
 
 4- Edit gcs_settings.php	
 - go to folder app_root_folder/application/config/
@@ -41,8 +41,6 @@ Send  email  notification via  Mailgun API
 	- gcs_client_id: paste Client ID (from step 2)
 	- gcs_service_account_name: paste email address (from step 2)
 	- gcs_key_file: paste your P12 file name (ie: myappname-579d43254tef.p12)
-	- gcs_oauth_scope: 
-
 
 
 
