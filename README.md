@@ -67,15 +67,20 @@ Send  email  notification via  Mailgun API
 	- Personal data: noreply_email, co_from_name, ... ,co_adsystem_email: set the values you prefer.
 
 9- Set Task
-A task defines what databases or folders you want to TAR and UPLOAD to GCS.
+- A task defines what databases or folders you want to TAR and UPLOAD to GCS.
 In the file you will find an example o task with 2 subtasks: database and folder.
+Also you may set more than one task, just create another array.
 Complete as needed.
 
 10- RUN TASK
 - Open the terminal
 - cd to app root path
-- run this php command: 
-
+- run command: php index.php backup cli webapp-full 
+	- Please wait until it echoes CRON END
+- Verify
+	- Verify Google Cloud Storage - Storage browser, and look for uploaded tar files.
+	- Verify if you recieved email with task detail.
+-  Set CRON JOB to automate task.	
 
 Enjoy
 
