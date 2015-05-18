@@ -52,8 +52,8 @@ Send  email  notification via  Mailgun API
 (ie: /www/home/youraccount/logs)
 
 7- Mailgun
-Get Maigun api key and domain.
-(don´t have one? open it http://mailgun.com)
+- Get Maigun api key and domain.
+- (don´t have one? open it http://mailgun.com)
 
 8- Edit backup_settings.php
 - go to folder app_root_folder/application/config/
