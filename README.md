@@ -5,7 +5,7 @@ Send  email  notification via  Mailgun API
 
 ###Workflow
 
-- folder is zipped in a TAR file
+- Folder is zipped in a TAR file
 - MySQL database is dumped and zipped in a TAR file
 - TAR file is prefixed with date and hour
 - TAR file is uploaded to Google Cloud Storage Bucket
@@ -16,7 +16,7 @@ Send  email  notification via  Mailgun API
 ###Install
 
 1- Extract
-- Extract folder behind webroot (not accesible via web)
+- Extract to folder behind webroot (not accesible via web)
 
 2- Google Cloud Settings
 - open your Google Cloud Console
@@ -52,7 +52,7 @@ Send  email  notification via  Mailgun API
 (ie: /www/home/youraccount/logs)
 
 7- Mailgun
-- Get Maigun api key and domain.
+- Get Mailgun API key and domain.
 - (don´t have one? open it http://mailgun.com)
 
 8- Edit backup_settings.php
@@ -75,7 +75,7 @@ Complete as needed.
 10- RUN TASK
 - Open the terminal
 - cd to app root path
-- run command: php index.php backup cli webapp-full 
+- run command: `$ php index.php backup cli webapp-full`   
 	- Please wait until it echoes CRON END
 - Verify
 	- Verify Google Cloud Storage - Storage browser, and look for uploaded tar files.
